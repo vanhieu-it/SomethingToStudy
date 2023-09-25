@@ -1,4 +1,4 @@
-package com.hido.somethingtosave.datastructures.BloomFilter;
+package com.hido.somethingtosave.datastructures.bloomFilter;
 
 import java.util.BitSet;
 

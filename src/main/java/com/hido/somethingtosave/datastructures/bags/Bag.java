@@ -1,8 +1,7 @@
-package com.hido.somethingtosave.datastructures.Bags;
+package com.hido.somethingtosave.datastructures.bags;
 
 
 import java.util.Iterator;
-import java.util.ListIterator;
 import java.util.NoSuchElementException;
 
 public class Bag<Element> implements Iterable<Element> {
