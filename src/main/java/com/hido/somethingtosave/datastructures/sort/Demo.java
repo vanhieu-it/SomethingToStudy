@@ -1,14 +1,16 @@
 package com.hido.somethingtosave.datastructures.sort;
-public  class Demo {
-    public static void main(String[] args){
+
+public class Demo {
+    public static void main(String[] args) {
 
         Common common = new Common();
         BubbleSort bubbleSort = new BubbleSort();
         SelectionSort selectionSort = new SelectionSort();
+        QuickSort quickSort = new QuickSort();
 
-        int randomNumber = common.generateOneNumber(1, 100);
-        int[] arr = common.generateRandomArray(randomNumber, 1, 100);
-        System.out.print("\nRandom Number: " + randomNumber);
+        int randomNumber = common.generateOneNumber(1000, 100000);
+        int[] arr = common.generateRandomArray(randomNumber, 1, 1000000);
+        System.out.print("\nRandom Number To Sort: " + randomNumber);
         //common.displayToScreen(Common.Display.IN.ordinal(), arr);
 
         System.out.print("\n====================================================================\n");
@@ -26,6 +28,12 @@ public  class Demo {
         //common.displayToScreen(Common.Display.OUT.ordinal(), array);
         common.displayExecutionTime("Selection Sorting", endTimeSS - startTimeSS);
 
+
+        long startTimeQS = System.nanoTime();
+        int[] arrayQS = quickSort.QuickSorting(arr, 0, arr.length - 1);
+        long endTimeQS = System.nanoTime();
+        //common.displayToScreen(Common.Display.OUT.ordinal(), array);
+        common.displayExecutionTime("Quick Sorting", endTimeQS - startTimeQS);
 
         System.out.print("\n====================================================================");
     }
