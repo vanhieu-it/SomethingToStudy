@@ -7,8 +7,9 @@ public class Demo {
         BubbleSort bubbleSort = new BubbleSort();
         SelectionSort selectionSort = new SelectionSort();
         QuickSort quickSort = new QuickSort();
+        HeapSort heapSort = new HeapSort();
 
-        int randomNumber = common.generateOneNumber(1000, 100000);
+        int randomNumber = common.generateOneNumber(10000, 100000);
         int[] arr = common.generateRandomArray(randomNumber, 1, 1000000);
         System.out.print("\nRandom Number To Sort: " + randomNumber);
         //common.displayToScreen(Common.Display.IN.ordinal(), arr);
@@ -34,6 +35,13 @@ public class Demo {
         long endTimeQS = System.nanoTime();
         //common.displayToScreen(Common.Display.OUT.ordinal(), array);
         common.displayExecutionTime("Quick Sorting", endTimeQS - startTimeQS);
+
+        long startTimeHS = System.nanoTime();
+        Comparable[] comparables = common.toComparableArray(arr);
+        Comparable[] arrayHS = heapSort.HeapSorting(comparables);
+        long endTimeHS = System.nanoTime();
+        //common.displayToScreen(Common.Display.OUT.ordinal(), array);
+        common.displayExecutionTime("Heap Sorting", endTimeHS - startTimeHS);
 
         System.out.print("\n====================================================================");
     }

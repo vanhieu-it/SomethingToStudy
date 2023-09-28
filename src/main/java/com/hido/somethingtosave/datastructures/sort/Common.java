@@ -53,4 +53,13 @@ public class Common {
             System.out.println("Execution Time: " + decimalFormat.format(minute) + " minute");
         }
     }
+    public Comparable<Integer>[] toComparableArray(int[] intArray) {
+        Comparable<Integer>[] comparableArray = new Comparable[intArray.length];
+
+        for (int i = 0; i < intArray.length; i++) {
+            comparableArray[i] = intArray[i]; // Auto-boxing: int to Integer
+        }
+
+        return comparableArray;
+    }
 }
