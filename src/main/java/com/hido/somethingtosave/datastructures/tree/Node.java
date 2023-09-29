@@ -1,13 +1,19 @@
 package com.hido.somethingtosave.datastructures.tree;
 
-public class Node {
-    public int value;
-    public Node leftNode;
-    public Node rightNode;
+public class Node<T> {
+    public T value;
+    public Node<T> leftNode;
+    public Node<T> rightNode;
 
-    public Node(int value, Node leftNode, Node rightNode) {
+    public Node(T value, Node<T> leftNode, Node<T> rightNode) {
         this.value = value;
         this.leftNode = leftNode;
         this.rightNode = rightNode;
+    }
+
+    public Node(T value) {
+        this.value = value;
+        this.leftNode = null;
+        this.rightNode = null;
     }
 }
