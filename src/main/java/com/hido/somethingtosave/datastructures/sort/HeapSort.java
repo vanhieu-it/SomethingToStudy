@@ -1,35 +1,40 @@
 package com.hido.somethingtosave.datastructures.sort;
 
-public class HeapSort {
-    static int total;
-    public void swap(Comparable[] arr, int a, int b){
-        Comparable temp= arr[a];
-        arr[a]= arr[b];
-        arr[b]= temp;
-    }
+public class HeapSort<T extends Comparable<T>> {
+    public void heapify(T[] arr, int n, int i) {
+        int largest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
 
-    public void heapify(Comparable[] arr, int i) {
-        int left = i * 2;
-        int right = i * 2 + 1;
-        int grt = i;
-        if (left <= total && arr[left].compareTo(arr[grt])>=0)
-            grt = left;
-        if (right <= total && arr[right].compareTo(arr[grt])>=0)
-            grt = right;
-        if (grt != i) {
-            swap(arr, i, grt);
-            heapify(arr, grt);
+        if (left < n && arr[left].compareTo(arr[largest]) > 0)
+            largest = left;
+
+        if (right < n && arr[right].compareTo(arr[largest]) > 0)
+            largest = right;
+
+        if (largest != i) {
+            T temp = arr[i];
+            arr[i] = arr[largest];
+            arr[largest] = temp;
+
+            heapify(arr, n, largest);
         }
     }
 
-    public Comparable[] HeapSorting(Comparable[] arr) {
-        int total = arr.length - 1;
-        for (int i = total / 2; i >= 0; i--)
-            heapify(arr, i);
-        for (int i = total; i > 0; i--) {
-            swap(arr, 0, i);
-            total--;
-            heapify(arr, 0);
+    public T[] HeapSorting(T[] arr) {
+        int n = arr.length;
+
+        // Build heap (rearrange array)
+        for (int i = n / 2 - 1; i >= 0; i--)
+            heapify(arr, n, i);
+
+        // One by one extract an element from heap
+        for (int i = n - 1; i > 0; i--) {
+            T temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+
+            heapify(arr, i, 0);
         }
         return arr;
     }

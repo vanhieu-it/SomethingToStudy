@@ -1,19 +1,16 @@
 package com.hido.somethingtosave.datastructures.sort;
 
-import java.text.DecimalFormat;
-import java.util.Random;
-
-public class SelectionSort {
-     public int[] SelectionSorting(int[] arr) {
+public class SelectionSort<T extends Comparable<T>> {
+    public T[] SelectionSorting(T[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int index = i;
             for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[index]) {
+                if (arr[j].compareTo(arr[index]) < 0) {
                     index = j;
                 }
             }
             if (index != i) {
-                int temp = arr[index];
+                T temp = arr[index];
                 arr[index] = arr[i];
                 arr[i] = temp;
             }

@@ -1,18 +1,18 @@
 package com.hido.somethingtosave.datastructures.sort;
 
-public class QuickSort {
-    public int[] QuickSorting(int[] arr, int low, int high) {
+public class QuickSort<T extends Comparable<T>> {
+    public T[] QuickSorting(T[] arr, int low, int high) {
         if (low > high) return null;
 
         int mid = low + (high - low) / 2;
-        int pivot = arr[mid];
+        T pivot = arr[mid];
         int i = low;
         int j = high;
         while (i <= j) {
-            while (arr[i] < pivot) i++;
-            while (arr[j] > pivot) j--;
+            while (arr[i].compareTo(pivot) < 0) i++;
+            while (arr[j].compareTo(pivot) > 0) j--;
             if (i <= j) {
-                int temp = arr[i];
+                T temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
                 i++;

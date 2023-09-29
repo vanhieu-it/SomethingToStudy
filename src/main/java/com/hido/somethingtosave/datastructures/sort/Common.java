@@ -1,14 +1,15 @@
 package com.hido.somethingtosave.datastructures.sort;
 
 import java.text.DecimalFormat;
+import java.util.Objects;
 import java.util.Random;
 
-public class Common {
-    enum Display{IN, OUT;}
+public class Common<T extends Comparable<T>> {
+    enum Display {IN, OUT;}
 
-    public void displayToScreen(int value, int[] arr) {
+    public void displayToScreen(int value, T[] arr) {
         if (value == 0) {
-            System.out.println("Before Sort:");
+            System.out.println("\nBefore Sort:");
         } else {
             System.out.println("\nAfter Sort:");
         }
@@ -17,10 +18,10 @@ public class Common {
             System.out.print(arr[i] + "\t");
         }
     }
-    public int[] generateRandomArray(int n, int min, int max) {
-        int[] array = new int[n];
-        Random random = new Random();
 
+    public Integer[] generateRandomArray(int n, int min, int max) {
+        Integer[] array = new Integer[n];
+        Random random = new Random();
         for (int i = 0; i < n; i++) {
             int randomNumber = random.nextInt(max - min + 1) + min;
             array[i] = randomNumber;
@@ -34,9 +35,9 @@ public class Common {
         return random.nextInt(max - min + 1) + min;
     }
 
-    public static void displayExecutionTime(String sortName ,long executionTime) {
+    public static void displayExecutionTime(String sortName, long executionTime) {
         DecimalFormat decimalFormat = new DecimalFormat("#.###");
-        System.out.println("\n"+ sortName);
+        System.out.println("\n" + sortName);
         if (executionTime < 1000) {
             System.out.println("Execution Time: " + executionTime + " nanosecond");
         } else if (executionTime < 1000000) {
@@ -52,14 +53,5 @@ public class Common {
             double minute = (double) executionTime / 60000000000L;
             System.out.println("Execution Time: " + decimalFormat.format(minute) + " minute");
         }
-    }
-    public Comparable<Integer>[] toComparableArray(int[] intArray) {
-        Comparable<Integer>[] comparableArray = new Comparable[intArray.length];
-
-        for (int i = 0; i < intArray.length; i++) {
-            comparableArray[i] = intArray[i]; // Auto-boxing: int to Integer
-        }
-
-        return comparableArray;
     }
 }

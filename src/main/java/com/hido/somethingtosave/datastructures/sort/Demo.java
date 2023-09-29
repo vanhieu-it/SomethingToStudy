@@ -3,46 +3,46 @@ package com.hido.somethingtosave.datastructures.sort;
 public class Demo {
     public static void main(String[] args) {
 
-        Common common = new Common();
-        BubbleSort bubbleSort = new BubbleSort();
-        SelectionSort selectionSort = new SelectionSort();
-        QuickSort quickSort = new QuickSort();
-        HeapSort heapSort = new HeapSort();
+        Common<Integer> common = new Common<>();
+        BubbleSort<Integer> bubbleSort = new BubbleSort<>();
+        SelectionSort<Integer> selectionSort = new SelectionSort<>();
+        QuickSort<Integer> quickSort = new QuickSort<>();
+        HeapSort<Integer> heapSort = new HeapSort<>();
 
-        int randomNumber = common.generateOneNumber(10000, 100000);
-        int[] arr = common.generateRandomArray(randomNumber, 1, 1000000);
+        int randomNumber = common.generateOneNumber(10, 20);
+        Integer[] arr = common.generateRandomArray(randomNumber, 1, 1000);
         System.out.print("\nRandom Number To Sort: " + randomNumber);
-        //common.displayToScreen(Common.Display.IN.ordinal(), arr);
+        common.displayToScreen(Common.Display.IN.ordinal(), arr);
 
-        System.out.print("\n====================================================================\n");
+        System.out.print("\n============================================================================================================\n");
 
         long startTimeBS = System.nanoTime();
-        int[] arrayBS = bubbleSort.BubbleSorting(arr);
+        Integer[] arrayBS = bubbleSort.BubbleSorting(arr);
         long endTimeBS = System.nanoTime();
-        //common.displayToScreen(Common.Display.OUT.ordinal(), array);
         common.displayExecutionTime("Bubble Sorting", endTimeBS - startTimeBS);
+        common.displayToScreen(Common.Display.OUT.ordinal(), arrayBS);
 
-
+        System.out.print("\n============================================================================================================");
         long startTimeSS = System.nanoTime();
-        int[] arraySS = selectionSort.SelectionSorting(arr);
+        Integer[] arraySS = selectionSort.SelectionSorting(arr);
         long endTimeSS = System.nanoTime();
-        //common.displayToScreen(Common.Display.OUT.ordinal(), array);
         common.displayExecutionTime("Selection Sorting", endTimeSS - startTimeSS);
+        common.displayToScreen(Common.Display.OUT.ordinal(), arraySS);
 
-
+        System.out.print("\n============================================================================================================");
         long startTimeQS = System.nanoTime();
-        int[] arrayQS = quickSort.QuickSorting(arr, 0, arr.length - 1);
+        Integer[] arrayQS = quickSort.QuickSorting(arr, 0, arr.length - 1);
         long endTimeQS = System.nanoTime();
-        //common.displayToScreen(Common.Display.OUT.ordinal(), array);
         common.displayExecutionTime("Quick Sorting", endTimeQS - startTimeQS);
+        common.displayToScreen(Common.Display.OUT.ordinal(), arrayQS);
 
+        System.out.print("\n============================================================================================================");
         long startTimeHS = System.nanoTime();
-        Comparable[] comparables = common.toComparableArray(arr);
-        Comparable[] arrayHS = heapSort.HeapSorting(comparables);
+        Integer[] arrayHS = heapSort.HeapSorting(arr);
         long endTimeHS = System.nanoTime();
-        //common.displayToScreen(Common.Display.OUT.ordinal(), array);
         common.displayExecutionTime("Heap Sorting", endTimeHS - startTimeHS);
+        common.displayToScreen(Common.Display.OUT.ordinal(),arrayHS);
 
-        System.out.print("\n====================================================================");
+        System.out.print("\n============================================================================================================");
     }
 }
