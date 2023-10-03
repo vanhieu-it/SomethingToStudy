@@ -8,8 +8,9 @@ public class Demo {
         SelectionSort<Integer> selectionSort = new SelectionSort<>();
         QuickSort<Integer> quickSort = new QuickSort<>();
         HeapSort<Integer> heapSort = new HeapSort<>();
+        MergeSort<Integer> mergeSort = new MergeSort<>();
 
-        int randomNumber = common.generateOneNumber(10, 20);
+        int randomNumber = common.generateOneNumber(10, 100);
         Integer[] arr = common.generateRandomArray(randomNumber, 1, 1000);
         System.out.print("\nRandom Number To Sort: " + randomNumber);
         common.displayToScreen(Common.Display.IN.ordinal(), arr);
@@ -42,6 +43,13 @@ public class Demo {
         long endTimeHS = System.nanoTime();
         common.displayExecutionTime("Heap Sorting", endTimeHS - startTimeHS);
         common.displayToScreen(Common.Display.OUT.ordinal(),arrayHS);
+
+        System.out.print("\n============================================================================================================");
+        long startTimeMS = System.nanoTime();
+        Integer[] arrayMS = mergeSort.mergeSort(arr);
+        long endTimeMS = System.nanoTime();
+        common.displayExecutionTime("Merge Sorting", endTimeMS - startTimeMS);
+        common.displayToScreen(Common.Display.OUT.ordinal(),arrayMS);
 
         System.out.print("\n============================================================================================================");
     }

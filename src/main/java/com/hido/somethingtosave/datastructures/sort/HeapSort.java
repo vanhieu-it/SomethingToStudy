@@ -24,11 +24,9 @@ public class HeapSort<T extends Comparable<T>> {
     public T[] HeapSorting(T[] arr) {
         int n = arr.length;
 
-        // Build heap (rearrange array)
         for (int i = n / 2 - 1; i >= 0; i--)
             heapify(arr, n, i);
 
-        // One by one extract an element from heap
         for (int i = n - 1; i > 0; i--) {
             T temp = arr[0];
             arr[0] = arr[i];
