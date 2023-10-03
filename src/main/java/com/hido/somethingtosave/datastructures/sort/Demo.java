@@ -5,6 +5,7 @@ public class Demo {
 
         Common<Integer> common = new Common<>();
         BubbleSort<Integer> bubbleSort = new BubbleSort<>();
+        InsertionSort<Integer> insertionSort = new InsertionSort<>();
         SelectionSort<Integer> selectionSort = new SelectionSort<>();
         QuickSort<Integer> quickSort = new QuickSort<>();
         HeapSort<Integer> heapSort = new HeapSort<>();
@@ -24,10 +25,18 @@ public class Demo {
         common.displayToScreen(Common.Display.OUT.ordinal(), arrayBS);
 
         System.out.print("\n============================================================================================================");
+
         long startTimeSS = System.nanoTime();
         Integer[] arraySS = selectionSort.SelectionSorting(arr);
         long endTimeSS = System.nanoTime();
-        common.displayExecutionTime("Selection Sorting", endTimeSS - startTimeSS);
+        common.displayExecutionTime("Insertion Sorting", endTimeSS - startTimeSS);
+        common.displayToScreen(Common.Display.OUT.ordinal(), arraySS);
+
+        System.out.print("\n============================================================================================================");
+        long startTimeIS = System.nanoTime();
+        Integer[] arrayIS = insertionSort.insertionSort(arr);
+        long endTimeIS = System.nanoTime();
+        common.displayExecutionTime("Selection Sorting", endTimeIS - startTimeIS);
         common.displayToScreen(Common.Display.OUT.ordinal(), arraySS);
 
         System.out.print("\n============================================================================================================");
