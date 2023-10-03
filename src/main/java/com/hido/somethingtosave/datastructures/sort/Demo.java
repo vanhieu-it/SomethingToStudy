@@ -29,15 +29,15 @@ public class Demo {
         long startTimeSS = System.nanoTime();
         Integer[] arraySS = selectionSort.SelectionSorting(arr);
         long endTimeSS = System.nanoTime();
-        common.displayExecutionTime("Insertion Sorting", endTimeSS - startTimeSS);
+        common.displayExecutionTime("Selection Sorting", endTimeSS - startTimeSS);
         common.displayToScreen(Common.Display.OUT.ordinal(), arraySS);
 
         System.out.print("\n============================================================================================================");
         long startTimeIS = System.nanoTime();
         Integer[] arrayIS = insertionSort.insertionSort(arr);
         long endTimeIS = System.nanoTime();
-        common.displayExecutionTime("Selection Sorting", endTimeIS - startTimeIS);
-        common.displayToScreen(Common.Display.OUT.ordinal(), arraySS);
+        common.displayExecutionTime("Insertion Sorting", endTimeIS - startTimeIS);
+        common.displayToScreen(Common.Display.OUT.ordinal(), arrayIS);
 
         System.out.print("\n============================================================================================================");
         long startTimeQS = System.nanoTime();
