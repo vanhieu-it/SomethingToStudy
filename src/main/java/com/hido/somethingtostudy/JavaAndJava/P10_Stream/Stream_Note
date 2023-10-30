@@ -1,0 +1,13 @@
+Một số phương thức
+- filter() giúp lọc các phần tử dựa trên tiêu chí nhất định
+- skip() loại bỏ n phần tử đầu tiên
+- limit() cắt giảm kích thước
+- map() ánh xạ các phần tử tới các kết quả tương ứng
+- sorted() sắp xếp các phần tử theo thứ tự nhất định
+- forEach() duyệt các phần tử
+- collect() giúp thu thập kết quả Stream sang một Collection
+- anyMatch() trả về giá trị boolean tuỳ thuộc vào điều kiện được áp dụng
+- allMatch() trả về true nếu tất cả phần tử đều thoả mãn điều kiện. Nếu một phần tử không thoả điều kiện, những phần tử còn lại sẽ không được kiểm tra.
+- noneMatch() ngược lại với allMatch()
+- count() trả về tổng số phần tử
+- min(), max() tìm phần tử lớn nhất và nhỏ nhất
